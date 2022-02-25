@@ -1,40 +1,113 @@
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title> Quyết FA</title>
-<meta name="description" content="Đoán xem có điều gì bất ngờ tại đây?">
-<meta property="og:image" content="https://i.pinimg.com/originals/e1/12/30/e11230d3298d114558530c0fcc48de2c.gif">
-<meta property="og:title" content="ấn vô đây này">
-<meta name="author" content="NGUYEN Văn Quyết ">
-<link rel="stylesheet" href="https://minhchuit.net/css/valentine.css" type="text/css">
-<link rel="stylesheet" href="https://minhchuit.net/css/fontawesome-free-5.12.1-web/css/all.css" type="text/css">
-<script language="javascript" src="https://minhchuit.net/js/jquery-3.3.1.min.js"></script>
-<p><img src="https://anhdepfree.com/wp-content/uploads/2020/05/anh-dong-gif-hinh-trai-tim.gif" width="720" height="480"></p>
-<script>
-    $(document).ready(function() {
-        $('.title').click(function() {
-            $('.container').addClass('open');
-        });
-        $('.close').click(function() {
-            $('.container').removeClass('open');
-        });
-    });
-</script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>3D</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style0.css" />
+  </head>
 
-
-<div class="bgoverlay">
+  <body>
     <div class="container">
-        <span class="ico">
-     <span class="ico2"></span>
-        <span class="title"> "ẤN Vào"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Đây</span>
-        </span>
-        <div class="endtext">
-            <span class="close" title="Restart"><i class="fa fa-times"></i></span>
-            <h1> Người trước màn hình ơi </h1>
-            <h2>Làm người yêu tớ nhé <i class="fas fa-heart"></i></h2>
-            <div id="all">
-                <button class="a" onclick="alert('ơ kìa cái màu xanh cơ mà')">Không Đồng Ý</button>
-                <button class="b"><a href="https://www.facebook.com/real.quyet.33/">Đồng Ý</a></button>
-            </div>
-        </div>
+      <div class="typing">
+        <h2 class="header-sub-title" id="word"></h2>
+        <h2 class="header-sub-title blink">|</h2>
+      </div>
+      <audio controls autoplay loop="loop"><source src="music.mp3" /></audio>
+      <div class="box">
+        <ul class="minbox">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <ol class="maxbox">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ol>
+      </div>
     </div>
-</div>
+
+    <script src="jquery.min.js"></script>
+    <script src="/TweenMax.min.js"></script>
+    <script src="index.js"></script>
+
+    <script>
+
+      if (
+        navigator.userAgent.match(
+          /(phone|pod|iPhone|iPod|ios|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+        )
+      ) {
+        var box = document.querySelectorAll(".box")[0];
+        console.log(box, "移动端");
+        box.style.left = "42%";
+      }
+      const words = [
+        "❤❤❤❤❤❤❤❤❤❤❤",
+        "❤                Gửi bạn Phạm Phương Vy ❤!               ❤",
+        "❤ Chúc bạn luôn vui vẻ hạnh phúc và gặp nhiều may mắn !  ❤",
+        "❤❤❤❤❤❤❤❤❤❤❤",
+      ];
+      let PPP = 0;
+      let timer;
+      let deleteDelay = 3000;
+      let typeSpeed = 100;
+      let delSpeed = 50;
+      function typingEffect() {
+        console.log(i, "iiii");
+        console.log(words[PPP], "words[i]");
+        let word = words[PPP].split("");
+        var loopTyping = function () {
+          if (word.length > 0) {
+            document.getElementById("word").innerHTML += word.shift();
+          } else {
+            delay(function () {
+              deletingEffect(); 
+            }, deleteDelay); 
+            return false;
+          }
+          timer = setTimeout(loopTyping, typeSpeed);
+        };
+        loopTyping();
+      }
+
+      function deletingEffect() {
+        let word = words[PPP].split("");
+        var loopDeleting = function () {
+          if (word.length > 0) {
+            word.pop();
+            document.getElementById("word").innerHTML = word.join("");
+          } else {
+            if (words.length > PPP + 1) {
+              PPP++;
+            } else {
+              PPP = 0;
+            }
+            typingEffect();
+            return false;
+          }
+
+          timer = setTimeout(loopDeleting, delSpeed);
+        };
+
+        loopDeleting();
+      }
+
+      var delay = (function () {
+        var timer = 0;
+        return function (callback, ms) {
+          clearTimeout(timer);
+          timer = setTimeout(callback, ms);
+        };
+      })();
+      typingEffect();
+    </script>
+  </body>
+</html>
