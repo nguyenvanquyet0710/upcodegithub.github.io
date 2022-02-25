@@ -22,7 +22,7 @@ body {
     /* background-size: 100% auto; */
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("bg.jpg");
+    background-image: url("https://scontent.fhan14-1.fna.fbcdn.net/v/t1.6435-9/162546702_909815619854054_5617195864448831737_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=174925&_nc_ohc=IUjjtk60C-QAX-jRQXK&_nc_ht=scontent.fhan14-1.fna&oh=00_AT_bgN4YtGyKs-oCUmejF8JK2D4nSl8H3rZdRY9Ht0qcGA&oe=623CE7FE");
     /* background-image: url("../bg_img/bg2.jpg"); */
     /* background-image: url("../bg_img/bg3.jpg"); */
     /* background-image: url("../bg_img/bg4.jpg"); */
@@ -77,7 +77,7 @@ body {
   h2 {
     font-weight: 600;
     font-size: 40px;
-    color: #f96f3c;
+    color: #3ca4f9;
     /* color: rgb(6, 178, 247); */
     padding-right: 0.1em;
     text-transform: uppercase;
